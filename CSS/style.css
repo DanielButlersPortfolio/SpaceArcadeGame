@@ -1,0 +1,240 @@
+* {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently */
+}
+
+body {
+  overflow: hidden;
+}
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.frame {
+  background-color: #808080;
+  height: 100%;
+  width: 100vw;
+  border: none;
+}
+
+.playerFigure {
+  background-color: none;
+  bottom: 0;
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  transition: bottom 1s;
+}
+
+.point {
+  background-color: none;
+  border: solid none 0.1rem;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+}
+
+@-webkit-keyframes goDown {
+  0% {
+    top: -300px;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes goDown {
+  0% {
+    top: -300px;
+  }
+  100% {
+    top: 100%;
+  }
+}
+.startNotice {
+  position: absolute;
+  color: white;
+  font-size: 5rem;
+  margin-top: 10rem;
+}
+
+.lable {
+  vertical-align: text-top;
+}
+
+.form {
+  position: absolute;
+  color: white;
+  font-size: 4rem;
+  top: 22rem;
+}
+
+.ckeckbox {
+  vertical-align: middle;
+  height: 4rem;
+  width: 4rem;
+}
+
+.score {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 5rem;
+  width: 5rem;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  line-height: 5rem;
+  font-size: 4rem;
+  border-bottom: solid black 0.25rem;
+  border-left: solid black 0.25rem;
+}
+
+.ship {
+  display: flex;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+}
+
+.point1 {
+  display: flex;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.arrows {
+  position: absolute;
+  bottom: 150px;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  width: 240px;
+  font-size: 80px;
+  line-height: 80px;
+}
+
+.left,
+.right {
+  color: white;
+  cursor: default;
+}
+
+.highScore {
+  position: absolute;
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+  margin-top: 16rem;
+}
+
+.background {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+}
+
+@-webkit-keyframes moveBackground1 {
+  0% {
+    top: -100vh;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes moveBackground1 {
+  0% {
+    top: -100vh;
+  }
+  100% {
+    top: 0;
+  }
+}
+@-webkit-keyframes moveBackground2 {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100vh;
+  }
+}
+@keyframes moveBackground2 {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100vh;
+  }
+}
+.meteorDiv {
+  position: absolute;
+  height: 250px;
+  width: 40px;
+}
+
+.meteor {
+  width: 100%;
+  height: 100%;
+}
+
+.popup {
+  position: absolute;
+  height: 300px;
+  width: 600px;
+  background-color: rgba(128, 128, 128, 0.651);
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border: solid 7.5px black;
+  color: white;
+  z-index: 1;
+}
+
+.closePopup {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 40px;
+  width: 40px;
+  font-size: 2rem;
+  border: none;
+  background-color: rgba(128, 128, 128, 0.651);
+}
+
+.closePopup:hover {
+  color: white;
+}
+
+.textInPopupH1 {
+  margin-bottom: 2rem;
+}
+
+.textInPopupP {
+  margin-top: 2.5rem;
+  font-size: 5rem;
+}
+
+.hide {
+  display: none;
+}/*# sourceMappingURL=style.css.map */
