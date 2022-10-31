@@ -1,35 +1,38 @@
 const PlayerAircraft = document.querySelector('.playerFigure');
 const main = document.querySelector('.main');
 const frame = document.querySelector('.frame');
-var checkboxEasy = document.getElementById('easy');
-var checkboxNormal = document.getElementById('normal');
-var checkboxHard = document.getElementById('hard');
-var checkboxDynamic = document.getElementById('dynamic');
-var form = document.querySelector('.form');
-var arrows = document.querySelector('.arrows');
-var leftArrow = document.querySelector('.left');
-var rightArrow = document.querySelector('.right');
+const checkboxEasy = document.getElementById('easy');
+const checkboxNormal = document.getElementById('normal');
+const checkboxHard = document.getElementById('hard');
+const checkboxDynamic = document.getElementById('dynamic');
+const form = document.querySelector('.form');
+const arrows = document.querySelector('.arrows');
+const leftArrow = document.querySelector('.left');
+const rightArrow = document.querySelector('.right');
+const scoreElement = document.querySelector('.score');
+const highScoreElement = document.querySelector('.highScore');
+const startNotice = document.querySelector('.startNotice');
+const popup = document.querySelector('.popup');
+const ClosePopupBtn = document.querySelector('.closePopup');
+const popupH1 = document.querySelector('.textInPopupH1');
+const popupP = document.querySelector('.textInPopupP');
+
 var pointImg = '<img src="./img/point1.png" alt="ship" class="point1" />';
 var meteorImg = '<img src="./img/meteor.png" alt="ship" class="meteor" />';
 var ship = 0;
-var ships = [
+const ships = [
   '<img src="./img/ship1.png" alt="ship" class="ship" />',
   '<img src="./img/ship2.png" alt="ship" class="ship" />',
   '<img src="./img/ship3.png" alt="ship" class="ship" />',
   '<img src="./img/ship4.png" alt="ship" class="ship" />',
 ];
+
 var score = 0;
 var speed = 2000;
 var dynamicSpeed = false;
 var playerSpeed = 1600;
-var scoreElement = document.querySelector('.score');
-var highScoreElement = document.querySelector('.highScore');
-var startNotice = document.querySelector('.startNotice');
-var popup = document.querySelector('.popup');
-var ClosePopupBtn = document.querySelector('.closePopup');
-var popupH1 = document.querySelector('.textInPopupH1');
-var popupP = document.querySelector('.textInPopupP');
 var started = false;
+
 
 // set start styles & reset checkboxes
 checkboxDynamic.checked = false;
@@ -41,6 +44,7 @@ PlayerAircraft.style.bottom = 150 + 'px';
 
 PlayerAircraft.innerHTML = ships[ship];
 highScoreElement.innerHTML = 'HIGH SCORE: ' + localStorage['HighScore'] + '<br/>' + 'SCORE: ' + localStorage['Score'];
+
 
 // loops
 scoreCounter = setInterval(function () {
@@ -163,11 +167,13 @@ setScore = setInterval(function () {
   }
 }, 100);
 
+
 // functions
 function setDynamicSpeed() {
   let sub = score * 5;
   speed = speed - sub;
 }
+
 function meteorGenerator() {
   frame.insertAdjacentHTML('beforeend', '<div class="meteorDiv meteorDown">' + meteorImg + '</div>');
   let meteorDiv = document.querySelector('.meteorDiv');
@@ -187,23 +193,29 @@ async function pointGenerator() {
   point.style.top = 0;
   point.style.left = getRanInt(window.innerWidth - 20) + 'px';
 }
+
 function getPlayerDistanceLeft() {
   return window.getComputedStyle(PlayerAircraft).getPropertyValue('left');
 }
+
 function getPosLeft(element) {
   return parseInt(window.getComputedStyle(element).getPropertyValue('left'));
 }
+
 function getPosTop(element) {
   return parseInt(window.getComputedStyle(element).getPropertyValue('top'));
 }
+
 function getPosBottom(element) {
   return parseInt(window.getComputedStyle(element).getPropertyValue('bottom'));
 }
+
 function workoutDistanceLeft() {
   let res = parseInt(getPlayerDistanceLeft()) / window.innerWidth;
   res = parseInt(playerSpeed * res);
   return res;
 }
+
 function workoutDistanceRight() {
   let res = (window.innerWidth - parseInt(getPlayerDistanceLeft())) / window.innerWidth;
   res = parseInt(playerSpeed * res);
@@ -213,10 +225,12 @@ function workoutDistanceRight() {
 function getRanInt(max) {
   return Math.floor(Math.random() * max);
 }
+
 function getRandMeteorSpeed() {
   let res = parseInt(speed / Math.random() / 2);
   return res;
 }
+
 function updateAnimations() {
   var animations =
     `
@@ -267,7 +281,6 @@ function updateAnimations() {
     speed +
     `ms;
 }
-
 .background2  {
     top: 0;
     animation: moveBackground2 linear infinite ` +
@@ -280,6 +293,7 @@ function updateAnimations() {
   styleSheet.innerText = animations;
   document.head.appendChild(styleSheet);
 }
+
 function updateMeteorAnimations() {
   var animations =
     `        .meteorDown  {
@@ -294,7 +308,6 @@ function updateMeteorAnimations() {
 }
 
 // listeners
-
 leftArrow.addEventListener('click', function () {
   if (ship == 0) {
   } else {
@@ -302,6 +315,7 @@ leftArrow.addEventListener('click', function () {
     PlayerAircraft.innerHTML = ships[ship];
   }
 });
+
 rightArrow.addEventListener('click', function () {
   if (ship == ships.length - 1) {
   } else {
